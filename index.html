@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOck-IT - Simple Task Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #0066ff;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 
+                0 20px 60px rgba(0, 102, 255, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .app-icon::after {
+            content: '✓';
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .feature-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .feature h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Support Section */
+        .support-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .support-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .support-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
+        }
+
+        .support-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+        }
+
+        /* Privacy Section */
+        .privacy-section {
+            background: #fefce8;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .privacy-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .privacy-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .privacy-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="app-icon"></div>
+        <h1>DOck-IT</h1>
+        <p class="tagline">Simple, powerful task management for iOS and macOS</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <h3>Daily Task Management</h3>
+                    <p>Swipe through dates effortlessly. Navigate with arrows or jump to any date with the calendar picker.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📋</div>
+                    <h3>Static Lists</h3>
+                    <p>Create unlimited persistent lists for Work, Travel, Shopping, or anything else. Customize names and organize your way.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Repeating Tasks</h3>
+                    <p>Set tasks to repeat daily, weekly, monthly, or yearly. Never forget recurring responsibilities.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Powerful Search</h3>
+                    <p>Find any task instantly with full-text search and highlighting across all your lists and dates.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Move & Copy Tasks</h3>
+                    <p>Flexible task management - move tasks between dates, copy to multiple days, or transfer between lists.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Dark Mode</h3>
+                    <p>Beautiful light and dark themes that adapt to your preference and reduce eye strain.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">♿</div>
+                    <h3>Accessibility</h3>
+                    <p>Adjustable text size from 80% to 150%. Optional strikethrough for completed tasks.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays yours. All information stored locally on your device with no external servers.</p>
+                </div>
+            </div>
+
+            <div class="support-box">
+                <h3>Need Help?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    We're here to help! Contact our support team for any questions or feedback.
+                </p>
+                <a href="mailto:support@dock-it.net" class="support-email">
+                    <span>📧</span>
+                    <span>support@dock-it.net</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card privacy-section">
+            <h2>Privacy Policy</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                DOck-IT is designed with your privacy as the top priority. We believe your tasks and personal information should remain private.
+            </p>
+
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Data Collection</h3>
+            <ul class="privacy-list">
+                <li><strong>No data collection:</strong> DOck-IT does not collect, transmit, or store any of your personal information on external servers.</li>
+                <li><strong>Local storage only:</strong> All tasks, lists, and settings are stored locally on your device using SwiftData.</li>
+                <li><strong>No analytics:</strong> We do not track your usage, behavior, or any analytics.</li>
+                <li><strong>No third-party services:</strong> The app does not integrate with any third-party analytics or advertising services.</li>
+            </ul>
+
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Your Rights</h3>
+            <ul class="privacy-list">
+                <li><strong>Data ownership:</strong> You own all your data. It never leaves your control.</li>
+                <li><strong>Export and delete:</strong> You can delete the app at any time to remove all local data.</li>
+                <li><strong>No account required:</strong> DOck-IT works without creating an account or providing personal information.</li>
+            </ul>
+
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Contact</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+                If you have any questions about our privacy practices, please contact us at <a href="mailto:support@dock-it.net" style="color: var(--accent); text-decoration: none; font-weight: 600;">support@dock-it.net</a>
+            </p>
+
+            <p style="color: var(--text-muted); margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">
+                Last updated: February 2026
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>System Requirements</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>iOS</h3>
+                    <p>Requires iOS 17.0 or later. Compatible with iPhone.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">💻</div>
+                    <h3>macOS</h3>
+                    <p>Requires macOS 14.0 or later. Universal app for Apple Silicon and Intel Macs.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DOck-IT. Developed by Charles Phares.</p>
+        <p style="margin-top: 0.5rem;">Simple task management, done right.</p>
+    </footer>
+</body>
+</html>
