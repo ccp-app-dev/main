@@ -289,6 +289,105 @@
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Version History */
+        .version-history .version-block {
+            border-left: 3px solid var(--border);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .version-history .version-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .version-history .version-block::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 6px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .version-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .version-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .version-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f3f4f6;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .version-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .version-label.latest {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .version-label.initial {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .version-category {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin: 1rem 0 0.4rem;
+        }
+
+        .version-items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .version-items li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .version-items li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
     </style>
 </head>
 <body>
@@ -356,9 +455,9 @@
                 <p style="color: var(--text-muted); margin-bottom: 1rem;">
                     We're here to help! Contact our support team for any questions or feedback.
                 </p>
-                <a href="mailto:support@dock-it.net" class="support-email">
+                <a href="/cdn-cgi/l/email-protection#20535550504f525460444f434b0d49540e4e4554" class="support-email">
                     <span>📧</span>
-                    <span>support@dock-it.net</span>
+                    <span><span class="__cf_email__" data-cfemail="9be8eeebebf4e9efdbfff4f8f0b6f2efb5f5feef">[email&#160;protected]</span></span>
                 </a>
             </div>
         </div>
@@ -386,12 +485,70 @@
 
             <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Contact</h3>
             <p style="color: var(--text-muted); margin-top: 0.5rem;">
-                If you have any questions about our privacy practices, please contact us at <a href="mailto:support@dock-it.net" style="color: var(--accent); text-decoration: none; font-weight: 600;">support@dock-it.net</a>
+                If you have any questions about our privacy practices, please contact us at <a href="/cdn-cgi/l/email-protection#afdcdadfdfc0dddbefcbc0ccc482c6db81c1cadb" style="color: var(--accent); text-decoration: none; font-weight: 600;"><span class="__cf_email__" data-cfemail="24575154544b565064404b474f094d500a4a4150">[email&#160;protected]</span></a>
             </p>
 
             <p style="color: var(--text-muted); margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">
-                Last updated: February 2026
+                Last updated: March 2026
             </p>
+        </div>
+
+        <div class="card version-history">
+            <h2>Version History</h2>
+
+            <!-- ============================================================
+                 TO ADD A NEW VERSION: Copy the version-block div below,
+                 paste it at the top of this section, update the version
+                 number, date, and change items. Update the "latest" label
+                 on the new block and change the previous latest to another
+                 label or remove it.
+            ============================================================ -->
+
+            <!-- v1.1 -->
+            <div class="version-block">
+                <div class="version-tag">
+                    <span class="version-number">Version 1.1</span>
+                    <span class="version-date">March 2026</span>
+                    <span class="version-label latest">Latest</span>
+                </div>
+
+                <p class="version-category">New Features</p>
+                <ul class="version-items">
+                    <li>Copy To option added to static list items — copy any static task directly to a specific date</li>
+                    <li>Auto Capitalize Words setting — automatically capitalizes the first letter of each word as you type</li>
+                    <li>End Repeat — stop a repeating task from generating future occurrences from any instance</li>
+                    <li>Resume Repeat — re-activate a previously ended repeat sequence</li>
+                    <li>Repeat indicator now shown on all repeat instances, not just the original task</li>
+                </ul>
+
+                <p class="version-category">Bug Fixes</p>
+                <ul class="version-items">
+                    <li>Repeat option removed from static list task menus where it was not applicable</li>
+                    <li>Fixed a bug where deleting a list would incorrectly create a new empty list</li>
+                    <li>Fixed a bug where copying a task to a future date would briefly show the wrong list content</li>
+                    <li>Improved reliability of task reordering in static lists</li>
+                    <li>Fixed Move To and Copy To using Pick Date not correctly placing tasks on the selected date</li>
+                    <li>Fixed calendar date picker briefly showing incorrect list content while browsing dates</li>
+                </ul>
+            </div>
+
+            <!-- v1.0 -->
+            <div class="version-block">
+                <div class="version-tag">
+                    <span class="version-number">Version 1.0</span>
+                    <span class="version-date">February 2026</span>
+                    <span class="version-label initial">Initial Release</span>
+                </div>
+                <ul class="version-items" style="margin-top: 0.5rem;">
+                    <li>Daily task management with date navigation</li>
+                    <li>Static lists for persistent tasks</li>
+                    <li>Repeating tasks (daily, weekly, monthly, yearly)</li>
+                    <li>Move and Copy tasks between dates</li>
+                    <li>Full-text search across all lists and dates</li>
+                    <li>Dark mode and adjustable text size</li>
+                </ul>
+            </div>
+
         </div>
 
         <div class="card">
@@ -406,15 +563,4 @@
                 <div class="feature">
                     <div class="feature-icon">💻</div>
                     <h3>macOS</h3>
-                    <p>Requires macOS 14.0 or later. Universal app for Apple Silicon and Intel Macs.</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 DOck-IT. Developed by Charles Phares.</p>
-        <p style="margin-top: 0.5rem;">Simple task management, done right.</p>
-    </footer>
-</body>
-</html>
+                    <p>Requires macOS 14.0 or later. Universal app for Apple Silicon and Int
