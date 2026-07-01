@@ -45,33 +45,22 @@
         header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
                 radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .app-icon {
-            width: 120px;
-            height: 120px;
+            width: 120px; height: 120px;
             margin: 0 auto 2rem;
             background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
             border-radius: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            font-weight: 900;
-            color: white;
-            box-shadow: 
-                0 20px 60px rgba(0, 102, 255, 0.3),
-                0 8px 16px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; font-weight: 900; color: white;
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative; z-index: 1;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -82,28 +71,35 @@
 
         .app-icon::after {
             content: '✓';
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 3.5rem; font-weight: 700;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 3.5rem; font-weight: 900;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
             letter-spacing: -0.02em;
         }
 
         .tagline {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            font-size: 1.25rem; opacity: 0.9;
+            max-width: 600px; margin: 0 auto;
+            position: relative; z-index: 1;
             font-weight: 400;
+        }
+
+        .version-badge {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.35rem 1rem;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative; z-index: 1;
         }
 
         /* Main Content */
@@ -111,8 +107,7 @@
             max-width: 900px;
             margin: -3rem auto 4rem;
             padding: 0 2rem;
-            position: relative;
-            z-index: 2;
+            position: relative; z-index: 2;
         }
 
         .card {
@@ -120,26 +115,21 @@
             border-radius: 16px;
             padding: 3rem;
             margin-bottom: 2rem;
-            box-shadow: 
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-weight: 700;
+            font-size: 2rem; margin-bottom: 1.5rem;
+            color: var(--primary); font-weight: 700;
         }
 
         /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2rem; margin-top: 2rem;
         }
 
         .feature {
@@ -148,31 +138,52 @@
         }
 
         .feature-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
+            position: absolute; left: 0; top: 0;
+            width: 40px; height: 40px;
             background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.25rem;
         }
 
         .feature h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text);
+            font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 0.5rem; color: var(--text);
         }
 
         .feature p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.95rem; line-height: 1.6;
+        }
+
+        /* New badge */
+        .new-badge {
+            display: inline-block;
+            font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            background: linear-gradient(135deg, #0066ff, #0052cc);
+            color: white; padding: 0.15rem 0.5rem;
+            border-radius: 4px; margin-left: 0.4rem;
+            vertical-align: middle; position: relative; top: -1px;
+        }
+
+        /* Migration notice */
+        .migration-notice {
+            background: #fefce8;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .migration-notice h4 {
+            font-size: 1rem; font-weight: 700;
+            color: #92400e; margin-bottom: 0.5rem;
+        }
+
+        .migration-notice p {
+            font-size: 0.9rem; color: #78350f; line-height: 1.6;
         }
 
         /* Support Section */
@@ -180,29 +191,20 @@
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border: 2px solid #bae6fd;
             border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
+            padding: 2rem; margin-top: 2rem; text-align: center;
         }
 
         .support-box h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            font-size: 1.25rem; font-weight: 700;
+            margin-bottom: 1rem; color: var(--primary);
         }
 
         .support-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            background: white;
-            border-radius: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            background: white; border-radius: 8px;
+            color: var(--accent); text-decoration: none;
+            font-weight: 600; transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
         }
 
@@ -218,236 +220,243 @@
         }
 
         .privacy-list {
-            list-style: none;
-            margin-top: 1rem;
+            list-style: none; margin-top: 1rem;
         }
 
         .privacy-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-muted);
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative; color: var(--text-muted);
         }
 
         .privacy-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: 700;
-            font-size: 1.1rem;
+            content: '✓'; position: absolute; left: 0;
+            color: #10b981; font-weight: 700; font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 3rem 2rem;
+            text-align: center; padding: 3rem 2rem;
             background: var(--surface);
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--text-muted); font-size: 0.9rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .app-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 3rem;
-            }
-
-            .card {
-                padding: 2rem 1.5rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
+            h1 { font-size: 2.5rem; }
+            .app-icon { width: 100px; height: 100px; font-size: 3rem; }
+            .card { padding: 2rem 1.5rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
 
         /* Animations */
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .card {
-            animation: slideUp 0.6s ease-out backwards;
-        }
-
+        .card { animation: slideUp 0.6s ease-out backwards; }
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
 
         /* Version History */
         .version-history .version-block {
             border-left: 3px solid var(--border);
-            padding-left: 1.5rem;
-            margin-bottom: 2.5rem;
+            padding-left: 1.5rem; margin-bottom: 2.5rem;
             position: relative;
         }
 
-        .version-history .version-block:last-child {
-            margin-bottom: 0;
-        }
+        .version-history .version-block:last-child { margin-bottom: 0; }
 
         .version-history .version-block::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 6px;
-            width: 11px;
-            height: 11px;
+            content: ''; position: absolute;
+            left: -7px; top: 6px;
+            width: 11px; height: 11px;
             border-radius: 50%;
+            background: var(--border);
+            border: 2px solid var(--surface);
+        }
+
+        .version-history .version-block.current::before {
             background: var(--accent);
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px var(--accent);
         }
 
         .version-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            display: flex; align-items: center;
+            gap: 0.75rem; flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
         .version-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 1.1rem; font-weight: 700; color: var(--text);
         }
 
         .version-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: #f3f4f6;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-weight: 500;
+            font-size: 0.875rem; color: var(--text-muted);
         }
 
         .version-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            padding: 0.2rem 0.6rem; border-radius: 4px;
         }
 
         .version-label.latest {
-            background: #dcfce7;
-            color: #16a34a;
+            background: #dcfce7; color: #16a34a;
         }
 
         .version-label.initial {
-            background: #f3f4f6;
-            color: #6b7280;
+            background: #f3f4f6; color: #6b7280;
         }
 
         .version-category {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            margin: 1rem 0 0.4rem;
+            font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            color: var(--accent); margin: 1rem 0 0.5rem;
         }
 
         .version-items {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            list-style: none; margin: 0; padding: 0;
         }
 
         .version-items li {
             padding: 0.3rem 0 0.3rem 1.5rem;
-            position: relative;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            position: relative; color: var(--text-muted);
+            font-size: 0.95rem; line-height: 1.5;
         }
 
         .version-items li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
+            content: '→'; position: absolute; left: 0;
+            color: var(--accent); font-weight: 700;
         }
 
+        /* How-to section */
+        .how-to-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+
+        .how-to-item {
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .how-to-item h4 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--primary); margin-bottom: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .how-to-item p, .how-to-item li {
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+        }
+
+        .how-to-item ol, .how-to-item ul {
+            padding-left: 1.25rem; margin-top: 0.5rem;
+        }
+
+        .how-to-item li { margin-bottom: 0.25rem; }
     </style>
 </head>
 <body>
     <header>
         <div class="app-icon"></div>
         <h1>DOck-IT</h1>
-        <p class="tagline">Simple, powerful task management for iOS and macOS</p>
+        <p class="tagline">Simple, powerful task management for iOS</p>
+        <div class="version-badge">Version 2.0</div>
     </header>
 
     <main>
+
+        <!-- KEY FEATURES -->
         <div class="card">
             <h2>Key Features</h2>
             <div class="features-grid">
+
                 <div class="feature">
                     <div class="feature-icon">📅</div>
                     <h3>Daily Task Management</h3>
-                    <p>Swipe through dates effortlessly. Navigate with arrows or jump to any date with the calendar picker.</p>
+                    <p>Swipe through dates effortlessly. Navigate with arrows or jump to any date with the calendar picker. The year is shown automatically when viewing past or future years.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">📋</div>
                     <h3>Static Lists</h3>
-                    <p>Create unlimited persistent lists for Work, Travel, Shopping, or anything else. Customize names and organize your way.</p>
+                    <p>Create unlimited persistent lists for Work, Travel, Shopping, or anything else. Reorder, rename, clean, reset, and export lists to share anywhere.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🔄</div>
-                    <h3>Repeating Tasks</h3>
-                    <p>Set tasks to repeat daily, weekly, monthly, or yearly. Never forget recurring responsibilities.</p>
+                    <h3>Repeating Tasks <span class="new-badge">Improved</span></h3>
+                    <p>Set tasks to repeat daily, weekdays only, weekly, monthly, or yearly. All instances are generated upfront so your full sequence is always visible, even far into the future.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">☑️</div>
+                    <h3>Subtasks <span class="new-badge">New</span></h3>
+                    <p>Break any task into subtasks. A parent task is automatically marked complete when all its subtasks are done, and unchecked when any subtask is unchecked.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>High Priority List <span class="new-badge">New</span></h3>
+                    <p>Mark any task as High Priority to pin a live copy to your dedicated HP list. Check it off from either location — both stay in sync automatically, including subtasks.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Home Screen Widget <span class="new-badge">New</span></h3>
+                    <p>Add a DOck-IT widget to your home screen in small, medium, or large size. Shows today's tasks, your HP list, or any static list. Tap the widget to jump straight to that list in the app.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📤</div>
+                    <h3>Export Static Lists <span class="new-badge">New</span></h3>
+                    <p>Share any static list as formatted text via Messages, Notes, Mail, or any app on your device. Perfect for sharing checklists or packing lists with others.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📆</div>
+                    <h3>Add to Calendar <span class="new-badge">New</span></h3>
+                    <p>Send any daily task directly to your iOS Calendar. Review and edit event details before saving — full EventKit integration with your existing calendars.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🔍</div>
                     <h3>Powerful Search</h3>
-                    <p>Find any task instantly with full-text search and highlighting across all your lists and dates.</p>
+                    <p>Find any task instantly with full-text search and highlighting across all your lists and dates — including tasks far outside your current date view.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">✨</div>
-                    <h3>Move & Copy Tasks</h3>
-                    <p>Flexible task management - move tasks between dates, copy to multiple days, or transfer between lists.</p>
+                    <h3>Move &amp; Copy Tasks</h3>
+                    <p>Move tasks between dates, copy to multiple days, or transfer between lists. Static list tasks can also be copied directly to a specific daily date.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>App Statistics <span class="new-badge">New</span></h3>
+                    <p>View your total daily task count, static list task count, and data store size from the Settings menu. Useful for understanding how much data your app is managing.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🎨</div>
-                    <h3>Dark Mode</h3>
-                    <p>Beautiful light and dark themes that adapt to your preference and reduce eye strain.</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">♿</div>
-                    <h3>Accessibility</h3>
-                    <p>Adjustable text size from 80% to 150%. Optional strikethrough for completed tasks.</p>
+                    <h3>Dark Mode &amp; Accessibility</h3>
+                    <p>Beautiful light and dark themes. Adjustable text size from 80% to 150%. Optional strikethrough for completed tasks. Auto-capitalize words as you type.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🔒</div>
                     <h3>Privacy First</h3>
-                    <p>Your data stays yours. All information stored locally on your device with no external servers.</p>
+                    <p>Your data stays yours. All information stored locally on your device. No accounts, no servers, no tracking.</p>
                 </div>
+
             </div>
 
             <div class="support-box">
@@ -455,13 +464,108 @@
                 <p style="color: var(--text-muted); margin-bottom: 1rem;">
                     We're here to help! Contact our support team for any questions or feedback.
                 </p>
-                <a href="/cdn-cgi/l/email-protection#20535550504f525460444f434b0d49540e4e4554" class="support-email">
+                <a href="mailto:support@dock-it.net?subject=DOck-IT%20Support" class="support-email">
                     <span>📧</span>
-                    <span><span class="__cf_email__" data-cfemail="9be8eeebebf4e9efdbfff4f8f0b6f2efb5f5feef">[email&#160;protected]</span></span>
+                    <span>support@dock-it.net</span>
                 </a>
             </div>
         </div>
 
+        <!-- HOW TO USE -->
+        <div class="card">
+            <h2>How To Use</h2>
+
+            <div class="how-to-grid">
+
+                <div class="how-to-item">
+                    <h4>⭐ High Priority</h4>
+                    <ol>
+                        <li>Tap ··· on any task and choose <strong>Mark High Priority</strong></li>
+                        <li>A live copy appears in your HP list</li>
+                        <li>Check it off from either location — both sync instantly</li>
+                        <li>Tap the origin indicator on the HP copy to jump back to the source</li>
+                        <li>To remove: tap ··· → <strong>Remove High Priority</strong></li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>☑️ Subtasks</h4>
+                    <ol>
+                        <li>Tap ··· on any task and choose <strong>Add Subtask</strong></li>
+                        <li>Type the subtask name and tap return to add more</li>
+                        <li>Subtasks appear indented below their parent</li>
+                        <li>Completing all subtasks automatically checks the parent</li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>🔄 Repeating Tasks</h4>
+                    <ol>
+                        <li>Tap ··· on any daily task → <strong>Set Repeat</strong></li>
+                        <li>Choose frequency: Daily, Weekdays, Weekly, Monthly, or Yearly</li>
+                        <li>Set a start and end date</li>
+                        <li>All instances are generated immediately</li>
+                        <li>Delete a single instance or the full sequence from any instance's menu</li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>📱 Widget Setup</h4>
+                    <ol>
+                        <li>Long-press your iPhone home screen → tap +</li>
+                        <li>Search for <strong>DOck-IT</strong> and choose a size</li>
+                        <li>In the app, go to Settings → <strong>Configure Widget</strong></li>
+                        <li>Choose which list to display and whether to show completed tasks or subtasks</li>
+                        <li>Tap the widget to open the app directly to that list</li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>📤 Export a Static List</h4>
+                    <ol>
+                        <li>Navigate to any static list</li>
+                        <li>Tap the ··· menu in the list header</li>
+                        <li>Choose <strong>Export List</strong></li>
+                        <li>Select any app to share to — Messages, Notes, Mail, and more</li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>📆 Add Task to Calendar</h4>
+                    <ol>
+                        <li>Tap ··· on any daily task</li>
+                        <li>Choose <strong>Add to Calendar</strong></li>
+                        <li>Review and edit the event details</li>
+                        <li>Tap <strong>Add</strong> to save to your iOS Calendar</li>
+                    </ol>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>📋 Static List Functions</h4>
+                    <ul>
+                        <li><strong>Clean List</strong> — removes all completed tasks from the current list</li>
+                        <li><strong>Reset List</strong> — unchecks all tasks, returning the list to a fresh state</li>
+                        <li><strong>Reorder Lists</strong> — drag lists into your preferred order from the list header menu</li>
+                        <li><strong>Rename</strong> — tap the list title to edit it inline</li>
+                    </ul>
+                </div>
+
+                <div class="how-to-item">
+                    <h4>📊 App Statistics</h4>
+                    <p>Open <strong>Settings</strong> (person icon, bottom left) and scroll to the <strong>App Data</strong> section to see your total daily task count, static list task count, and data store file size.</p>
+                </div>
+
+            </div>
+
+            <!-- Migration notice for v1 users -->
+            <div class="migration-notice">
+                <h4>⚠️ Note for users updating from v1</h4>
+                <p>DOck-IT v2 uses an improved repeat task system. When you first open the app after updating, your existing repeat sequences will be automatically converted — previously generated instances are preserved as regular tasks, and you'll be prompted to recreate any repeat sequences you'd like to continue. This is a one-time process.</p>
+            </div>
+
+        </div>
+
+        <!-- PRIVACY -->
         <div class="card privacy-section">
             <h2>Privacy Policy</h2>
             <p style="margin-bottom: 1rem; color: var(--text-muted);">
@@ -472,44 +576,92 @@
             <ul class="privacy-list">
                 <li><strong>No data collection:</strong> DOck-IT does not collect, transmit, or store any of your personal information on external servers.</li>
                 <li><strong>Local storage only:</strong> All tasks, lists, and settings are stored locally on your device using SwiftData.</li>
+                <li><strong>Widget data:</strong> The home screen widget reads task data from a local shared container on your device. No data leaves your device.</li>
                 <li><strong>No analytics:</strong> We do not track your usage, behavior, or any analytics.</li>
                 <li><strong>No third-party services:</strong> The app does not integrate with any third-party analytics or advertising services.</li>
+            </ul>
+
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Permissions</h3>
+            <ul class="privacy-list">
+                <li><strong>Calendar access:</strong> Only requested when you use Add to Calendar. Used solely to create events you explicitly initiate. Never accessed in the background.</li>
+                <li><strong>No other permissions required:</strong> DOck-IT does not request access to contacts, photos, location, microphone, camera, or any other device data.</li>
             </ul>
 
             <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Your Rights</h3>
             <ul class="privacy-list">
                 <li><strong>Data ownership:</strong> You own all your data. It never leaves your control.</li>
-                <li><strong>Export and delete:</strong> You can delete the app at any time to remove all local data.</li>
+                <li><strong>Export:</strong> Use Export List to share your static list data in plain text at any time.</li>
+                <li><strong>Delete:</strong> Deleting the app removes all local data from your device.</li>
                 <li><strong>No account required:</strong> DOck-IT works without creating an account or providing personal information.</li>
             </ul>
 
             <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">Contact</h3>
             <p style="color: var(--text-muted); margin-top: 0.5rem;">
-                If you have any questions about our privacy practices, please contact us at <a href="/cdn-cgi/l/email-protection#afdcdadfdfc0dddbefcbc0ccc482c6db81c1cadb" style="color: var(--accent); text-decoration: none; font-weight: 600;"><span class="__cf_email__" data-cfemail="24575154544b565064404b474f094d500a4a4150">[email&#160;protected]</span></a>
+                If you have any questions about our privacy practices, please contact us at
+                <a href="mailto:support@dock-it.net" style="color: var(--accent); text-decoration: none; font-weight: 600;">support@dock-it.net</a>
             </p>
 
             <p style="color: var(--text-muted); margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">
-                Last updated: March 2026
+                Last updated: June 2026
             </p>
         </div>
 
+        <!-- VERSION HISTORY -->
         <div class="card version-history">
             <h2>Version History</h2>
 
             <!-- ============================================================
-                 TO ADD A NEW VERSION: Copy the version-block div below,
+                 TO ADD A NEW VERSION: Copy a version-block div below,
                  paste it at the top of this section, update the version
                  number, date, and change items. Update the "latest" label
-                 on the new block and change the previous latest to another
-                 label or remove it.
+                 on the new block and remove it from the previous one.
             ============================================================ -->
+
+            <!-- v2.0 -->
+            <div class="version-block current">
+                <div class="version-tag">
+                    <span class="version-number">Version 2.0</span>
+                    <span class="version-date">June 2026</span>
+                    <span class="version-label latest">Latest</span>
+                </div>
+
+                <p class="version-category">New Features</p>
+                <ul class="version-items">
+                    <li>Subtasks — add sub-items to any task; parent auto-completes when all subtasks are done</li>
+                    <li>High Priority list — mark any task as HP to pin a live synced copy to a dedicated HP list</li>
+                    <li>Home screen widget — small, medium, and large sizes; shows daily, HP, or any static list; tapping navigates directly to that list in the app</li>
+                    <li>Widget auto-refreshes daily so your tasks stay current even when the app is closed</li>
+                    <li>Export static lists as formatted text to Messages, Notes, Mail, or any app</li>
+                    <li>Add any daily task to your iOS Calendar with full event editing</li>
+                    <li>Weekday repeat frequency — repeat on Monday through Friday only</li>
+                    <li>Reorder static lists — drag lists into your preferred display order</li>
+                    <li>Clean List — remove all completed tasks from the current static list in one tap</li>
+                    <li>Reset List — uncheck all tasks in the current static list to start fresh</li>
+                    <li>App Data in Settings — view total task counts and data store size</li>
+                    <li>Year shown in date header when viewing a year other than the current one</li>
+                </ul>
+
+                <p class="version-category">Improvements</p>
+                <ul class="version-items">
+                    <li>Repeat task system rebuilt — all instances generated upfront so future tasks are always visible</li>
+                    <li>Search now spans full task history, not just the current date range</li>
+                    <li>HP list check state syncs bidirectionally including subtask cascading</li>
+                    <li>Tapping the origin indicator on an HP copy navigates back to the source list or date</li>
+                    <li>HP copy names update in real time when the original is edited</li>
+                    <li>Deleting a repeat sequence now correctly removes any associated HP copies</li>
+                </ul>
+
+                <p class="version-category">Upgrade Note</p>
+                <ul class="version-items">
+                    <li>Existing repeat sequences from v1 are automatically converted on first launch — previously generated instances are kept as regular tasks; sequences can be recreated with the new repeat interface</li>
+                </ul>
+            </div>
 
             <!-- v1.1.1 -->
             <div class="version-block">
                 <div class="version-tag">
                     <span class="version-number">Version 1.1.1</span>
                     <span class="version-date">March 2026</span>
-                    <span class="version-label latest">Latest</span>
                 </div>
 
                 <p class="version-category">Bug Fixes</p>
@@ -565,16 +717,43 @@
 
         </div>
 
+        <!-- SYSTEM REQUIREMENTS -->
         <div class="card">
             <h2>System Requirements</h2>
             <div class="features-grid">
                 <div class="feature">
                     <div class="feature-icon">📱</div>
                     <h3>iOS</h3>
-                    <p>Requires iOS 17.0 or later. Compatible with iPhone.</p>
+                    <p>Requires iOS 18.5 or later. Compatible with iPhone.</p>
                 </div>
-
                 <div class="feature">
-                    <div class="feature-icon">💻</div>
-                    <h3>macOS</h3>
-                    <p>Requires macOS 14.0 or later. Universal app for Apple Silicon and Int
+                    <div class="feature-icon">🟦</div>
+                    <h3>Widget</h3>
+                    <p>Home screen widget requires iOS 18.5 or later. Supports small, medium, and large sizes.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💾</div>
+                    <h3>Storage</h3>
+                    <p>Minimal storage required. All data stored locally on device — no cloud account needed.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📆</div>
+                    <h3>Calendar Integration</h3>
+                    <p>Add to Calendar feature requires permission to access your iOS Calendar. Permission is requested only when you first use the feature.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p style="margin-bottom: 0.5rem;">
+            <strong>DOck-IT</strong> · Version 2.0 · © 2026 Charles Phares · CCP Co.
+        </p>
+        <p>
+            <a href="mailto:support@dock-it.net" style="color: var(--accent); text-decoration: none;">support@dock-it.net</a>
+        </p>
+    </footer>
+
+</body>
+</html>
