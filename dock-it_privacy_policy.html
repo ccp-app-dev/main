@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOck-IT — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #0066ff;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .app-icon {
+            width: 90px; height: 90px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
+            border-radius: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; font-weight: 900; color: white;
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative; z-index: 1;
+        }
+
+        .app-icon::after { content: '✓'; font-size: 2.8rem; font-weight: 700; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem; font-weight: 900;
+            margin-bottom: 0.5rem;
+            position: relative; z-index: 1;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem; opacity: 0.85;
+            position: relative; z-index: 1;
+        }
+
+        nav {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: relative; z-index: 2;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0.25rem 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover { text-decoration: underline; }
+        nav a.active { color: var(--primary); }
+
+        main {
+            max-width: 860px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative; z-index: 2;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; margin-bottom: 1.5rem;
+            color: var(--primary); font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.1rem; font-weight: 700;
+            margin-top: 1.75rem; margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .privacy-list {
+            list-style: none; margin-top: 0.75rem;
+        }
+
+        .privacy-list li {
+            padding: 0.65rem 0 0.65rem 2rem;
+            position: relative; color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .privacy-list li:last-child { border-bottom: none; }
+
+        .privacy-list li::before {
+            content: '✓'; position: absolute; left: 0;
+            color: #10b981; font-weight: 700; font-size: 1.1rem;
+        }
+
+        .intro-text {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center; padding: 3rem 2rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .card { padding: 2rem 1.5rem; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card { animation: slideUp 0.5s ease-out backwards; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="app-icon"></div>
+        <h1>DOck-IT</h1>
+        <p class="page-subtitle">Privacy Policy</p>
+    </header>
+
+    <nav>
+        <a href="dock-it_privacy_policy.html" class="active">Privacy Policy</a>
+        <a href="dock-it_version_history.html">Version History</a>
+        <a href="dock-it_usage_tips.html">Usage Tips</a>
+    </nav>
+
+    <main>
+        <div class="card">
+            <h2>Privacy Policy</h2>
+            <p class="intro-text">DOck-IT is designed with your privacy as the top priority. We believe your tasks and personal information should remain private.</p>
+
+            <h3>Data Collection</h3>
+            <ul class="privacy-list">
+                <li><strong>No data collection:</strong> DOck-IT does not collect, transmit, or store any of your personal information on external servers.</li>
+                <li><strong>Local storage only:</strong> All tasks, lists, and settings are stored locally on your device using SwiftData.</li>
+                <li><strong>Widget data:</strong> The home screen widget reads task data from a local shared container on your device. No data leaves your device.</li>
+                <li><strong>No analytics:</strong> We do not track your usage, behavior, or any analytics.</li>
+                <li><strong>No third-party services:</strong> The app does not integrate with any third-party analytics or advertising services.</li>
+            </ul>
+
+            <h3>Permissions</h3>
+            <ul class="privacy-list">
+                <li><strong>Calendar access:</strong> Only requested when you use Add to Calendar. Used solely to create events you explicitly initiate. Never accessed in the background.</li>
+                <li><strong>No other permissions required:</strong> DOck-IT does not request access to contacts, photos, location, microphone, camera, or any other device data.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul class="privacy-list">
+                <li><strong>Data ownership:</strong> You own all your data. It never leaves your control.</li>
+                <li><strong>Export:</strong> Use Export List to share your static list data in plain text at any time.</li>
+                <li><strong>Delete:</strong> Deleting the app removes all local data from your device.</li>
+                <li><strong>No account required:</strong> DOck-IT works without creating an account or providing personal information.</li>
+            </ul>
+
+            <h3>Contact</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+                If you have any questions about our privacy practices, please contact us at
+                <a href="mailto:support@dock-it.net" style="color: var(--accent); text-decoration: none; font-weight: 600;">support@dock-it.net</a>
+            </p>
+
+            <p style="color: var(--text-muted); margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">
+                Last updated: July 2026
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p style="margin-bottom: 0.5rem;">
+            <strong>DOck-IT</strong> · Version 2.1 · © 2026 Charles Phares · CCP Co.
+        </p>
+        <p>
+            <a href="mailto:support@dock-it.net">support@dock-it.net</a>
+        </p>
+    </footer>
+
+</body>
+</html>

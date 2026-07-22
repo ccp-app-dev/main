@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOck-IT — Usage Tips</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #0066ff;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .app-icon {
+            width: 90px; height: 90px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #0052cc 100%);
+            border-radius: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; font-weight: 900; color: white;
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative; z-index: 1;
+        }
+
+        .app-icon::after { content: '✓'; font-size: 2.8rem; font-weight: 700; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem; font-weight: 900;
+            margin-bottom: 0.5rem;
+            position: relative; z-index: 1;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem; opacity: 0.85;
+            position: relative; z-index: 1;
+        }
+
+        nav {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: relative; z-index: 2;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0.25rem 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover { text-decoration: underline; }
+        nav a.active { color: var(--primary); }
+
+        main {
+            max-width: 860px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative; z-index: 2;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            animation: slideUp 0.5s ease-out backwards;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; margin-bottom: 1.75rem;
+            color: var(--primary); font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .tip-card h4 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--primary); margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .tip-card p,
+        .tip-card li {
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+        }
+
+        .tip-card ol,
+        .tip-card ul {
+            padding-left: 1.25rem; margin-top: 0.25rem;
+        }
+
+        .tip-card li { margin-bottom: 0.3rem; }
+
+        .section-label {
+            font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            color: var(--accent);
+            margin: 2rem 0 1rem;
+        }
+
+        .section-label:first-child { margin-top: 0; }
+
+        .migration-notice {
+            background: #fefce8;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .migration-notice h4 {
+            font-size: 1rem; font-weight: 700;
+            color: #92400e; margin-bottom: 0.5rem;
+        }
+
+        .migration-notice p {
+            font-size: 0.9rem; color: #78350f; line-height: 1.6;
+        }
+
+        .support-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            padding: 2rem; margin-top: 2rem; text-align: center;
+        }
+
+        .support-box h3 {
+            font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 0.75rem; color: var(--primary);
+            text-transform: none; letter-spacing: 0;
+        }
+
+        .support-email {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white; border-radius: 8px;
+            color: var(--accent); text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
+        }
+
+        footer {
+            text-align: center; padding: 3rem 2rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .card { padding: 2rem 1.5rem; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="app-icon"></div>
+        <h1>DOck-IT</h1>
+        <p class="page-subtitle">Usage Tips</p>
+    </header>
+
+    <nav>
+        <a href="dock-it_privacy_policy.html">Privacy Policy</a>
+        <a href="dock-it_version_history.html">Version History</a>
+        <a href="dock-it_usage_tips.html" class="active">Usage Tips</a>
+    </nav>
+
+    <main>
+
+        <!-- GETTING STARTED -->
+        <div class="card">
+            <h2>Getting Started</h2>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>📅 Daily Tasks</h4>
+                    <ol>
+                        <li>Type in the <strong>Add new task...</strong> field at the bottom of the daily list and tap Return or the + button</li>
+                        <li>Swipe left or right to move between days, or tap the calendar icon in the header to jump to any date</li>
+                        <li>Tap the circle to the left of any task to check it off</li>
+                        <li>Tap the task name to edit it inline</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📋 Static Lists</h4>
+                    <ol>
+                        <li>Tap <strong>+</strong> in the bottom banner to create a new static list</li>
+                        <li>Swipe left or right in the lower panel to move between lists</li>
+                        <li>Tap the list title to rename it inline</li>
+                        <li>Tap the ··· menu in the list header for Clean, Reset, Export, and Delete options</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔲 Bottom Banner</h4>
+                    <p>The bottom banner gives you quick access to six controls:</p>
+                    <ul>
+                        <li><strong>⚙️ Settings</strong> — app preferences</li>
+                        <li><strong>👁 Hide/Show</strong> — toggle completed task visibility</li>
+                        <li><strong>↑↓ Sort</strong> — cycle sort: none → top → bottom</li>
+                        <li><strong>⊡⊡ Reorder</strong> — drag static lists to reorder</li>
+                        <li><strong>+ New List</strong> — create a new static list</li>
+                        <li><strong>🔍 Search</strong> — find any task</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FEATURES IN DEPTH -->
+        <div class="card">
+            <h2>Features In Depth</h2>
+
+            <p class="section-label">Tasks &amp; Organization</p>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>☑️ Subtasks</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> on any task and choose <strong>Add Subtask</strong></li>
+                        <li>Type the subtask name and tap Return to add more</li>
+                        <li>Subtasks appear indented below their parent</li>
+                        <li>Completing all subtasks automatically checks the parent</li>
+                        <li>Unchecking any subtask automatically unchecks the parent</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⭐ High Priority List</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> on any task → <strong>Mark High Priority</strong></li>
+                        <li>A live copy appears in your HP list with an origin indicator</li>
+                        <li>Check it off from either location — both sync instantly</li>
+                        <li>Tap the origin indicator on the HP copy to jump back to the source list or date</li>
+                        <li>To remove: tap <strong>···</strong> → <strong>Remove High Priority</strong></li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>↕️ Manual Reordering</h4>
+                    <ol>
+                        <li>Long-press the <strong>≡</strong> handle on the right of any task</li>
+                        <li>Drag the task to its new position</li>
+                        <li>Release to drop — sort order is saved automatically</li>
+                        <li>If completion sort is active, dragging cancels it and restores manual order</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>👁 Hide &amp; Sort Completed</h4>
+                    <ul>
+                        <li>Tap the <strong>eye</strong> icon in the bottom banner to hide completed tasks from view</li>
+                        <li>Tap the <strong>↑↓ arrows</strong> to sort completed tasks to the top or bottom of the list — tap again to cycle through states</li>
+                        <li>Both settings apply globally across all daily and static lists</li>
+                        <li>Settings are preserved when you swipe between days or lists</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="section-label" style="margin-top: 2rem;">Moving &amp; Copying Tasks</p>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>✨ Move To / Copy To</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> on any task → <strong>Move To...</strong> or <strong>Copy To...</strong></li>
+                        <li>Choose a date option — options adapt based on your currently viewed date</li>
+                        <li>Or choose <strong>Static List...</strong> to move or copy to any static list</li>
+                        <li>Moving removes the original; copying leaves it in place</li>
+                        <li>Subtasks are carried along automatically</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📋 Moving to a Static List</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> → <strong>Move To...</strong> or <strong>Copy To...</strong></li>
+                        <li>Tap <strong>Static List...</strong></li>
+                        <li>Choose any list from the picker — your current list is excluded automatically</li>
+                        <li>Or tap <strong>Add New List...</strong> to create a new list and place the task in it immediately</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <p class="section-label" style="margin-top: 2rem;">Repeating Tasks</p>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>🔄 Setting Up a Repeat</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> on any daily task → <strong>Add Repeat</strong></li>
+                        <li>Choose a frequency — Daily, Weekdays, Weekly, Monthly, or Yearly (defaults to Weekly)</li>
+                        <li>Set start and end dates</li>
+                        <li>All instances are generated immediately — scroll ahead to see them</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔄 Managing Repeats</h4>
+                    <ul>
+                        <li><strong>Edit Repeat</strong> — tap <strong>···</strong> on any instance to adjust the end date</li>
+                        <li><strong>Delete This Instance</strong> — removes just that one occurrence</li>
+                        <li><strong>Delete</strong> (on the original) — removes the full sequence</li>
+                        <li>Daily and weekday repeats with long durations may affect app performance — consider limiting the end date or using a static list instead</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="section-label" style="margin-top: 2rem;">Widget &amp; Search</p>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>📱 Widget Setup</h4>
+                    <ol>
+                        <li>Long-press your iPhone home screen → tap +</li>
+                        <li>Search for <strong>DOck-IT</strong> and choose a size: small, medium, or large</li>
+                        <li>In the app, go to <strong>Settings → Configure Widget</strong></li>
+                        <li>Choose which list to display and whether to show completed tasks</li>
+                        <li>Tap the widget to jump directly to that list in the app</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Search</h4>
+                    <ol>
+                        <li>Tap the magnifying glass in the bottom banner</li>
+                        <li>Type any keyword — matches appear highlighted across all lists and dates</li>
+                        <li>Use the arrows to jump between results</li>
+                        <li>Search covers your full task history, not just the current date</li>
+                        <li>Tap the × to close search and return to the current view</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📤 Export a Static List</h4>
+                    <ol>
+                        <li>Navigate to the static list you want to share</li>
+                        <li>Tap the <strong>···</strong> menu in the list header</li>
+                        <li>Choose <strong>Export List</strong></li>
+                        <li>Select any app to share to — Messages, Notes, Mail, and more</li>
+                    </ol>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📆 Add Task to Calendar</h4>
+                    <ol>
+                        <li>Tap <strong>···</strong> on any daily task</li>
+                        <li>Choose <strong>Add to Calendar</strong></li>
+                        <li>Review and edit the event details in the calendar editor</li>
+                        <li>Tap <strong>Add</strong> to save to your iOS Calendar</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <p class="section-label" style="margin-top: 2rem;">Static List Management</p>
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <h4>📋 List Controls</h4>
+                    <ul>
+                        <li><strong>Rename</strong> — tap the list title to edit it inline</li>
+                        <li><strong>Clean List</strong> — removes all completed tasks (tap ··· in the list header)</li>
+                        <li><strong>Reset List</strong> — unchecks all tasks, returning the list to a fresh state</li>
+                        <li><strong>Reorder Lists</strong> — tap the reorder icon in the bottom banner, then drag lists into order</li>
+                        <li><strong>Delete List</strong> — removes the list and all its tasks permanently</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📊 App Statistics</h4>
+                    <p>Open <strong>Settings</strong> (gear icon, bottom left) and scroll to the <strong>App Data</strong> section to see:</p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Total daily task count</li>
+                        <li>Total static list task count</li>
+                        <li>Data store file size on device</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="migration-notice">
+                <h4>⚠️ Note for users updating from v1</h4>
+                <p>DOck-IT v2 uses an improved repeat task system. When you first open the app after updating, your existing repeat sequences will be automatically converted — previously generated instances are preserved as regular tasks, and you'll be prompted to recreate any repeat sequences you'd like to continue. This is a one-time process.</p>
+            </div>
+
+            <div class="support-box">
+                <h3>Need Help?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Questions or feedback? We'd love to hear from you.</p>
+                <a href="mailto:support@dock-it.net?subject=DOck-IT%20Support" class="support-email">
+                    <span>📧</span>
+                    <span>support@dock-it.net</span>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p style="margin-bottom: 0.5rem;">
+            <strong>DOck-IT</strong> · Version 2.1 · © 2026 Charles Phares · CCP Co.
+        </p>
+        <p>
+            <a href="mailto:support@dock-it.net">support@dock-it.net</a>
+        </p>
+    </footer>
+
+</body>
+</html>
